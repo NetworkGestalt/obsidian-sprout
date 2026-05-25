@@ -39,7 +39,7 @@ If a concept note with the same title already exists, Sprout links to it instead
 ## Privacy and security
 
 > [!CAUTION]
-> Explaining a selection sends the selected text and surrounding context to the Anthropic API (a third party). Your API key is kept in Obsidian's secret storage, which is currently **not encrypted at rest**: it is saved unencrypted in local storage, where software with access to that data can read it.
+> Explaining a selection sends the selected text and surrounding context to the Anthropic API (a third party). Your API key is kept in Obsidian's secret storage, which is currently **not encrypted at rest**: it is saved unencrypted in local storage, where other software with access to that data could read it.
 
 ## License
 
