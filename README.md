@@ -1,6 +1,6 @@
 # Sprout
 
-Select a term or passage in a note and Sprout uses the Anthropic API to generate a linked explanation note in your vault. Built for reading research papers in Obsidian.
+Select a term or passage in a note and Sprout uses the Anthropic API to generate a linked explanation note in your vault. Built for reading research papers that have already been converted to markdown.
 
 ## Requirements
 
