@@ -68,6 +68,7 @@ const RESERVED_WINDOWS_NAMES = /^(CON|PRN|AUX|NUL|COM[1-9]|LPT[1-9])$/i;
 
 export function sanitizeFilename(name: string, fallback: string): string {
     const cleaned = name
+        // eslint-disable-next-line no-control-regex -- stripping control characters is intentional for filenames
         .replace(/[\\/:*?"<>|\x00-\x1f]/g, "")
         .replace(/^[.\s]+|[.\s]+$/g, "")
         .slice(0, 80)

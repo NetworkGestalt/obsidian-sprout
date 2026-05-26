@@ -35,7 +35,7 @@ export default class SproutPlugin extends Plugin {
             icon: "sprout",
             editorCheckCallback: (checking, editor) => {
                 if (!editor.getSelection()) return false;
-                if (!checking) this.handleExplainSelection(editor);
+                if (!checking) void this.handleExplainSelection(editor);
                 return true;
             },
         });
@@ -44,7 +44,7 @@ export default class SproutPlugin extends Plugin {
     onunload() {}
 
     async loadSettings() {
-        this.settings = Object.assign({}, DEFAULT_SETTINGS, await this.loadData());
+        this.settings = Object.assign({}, DEFAULT_SETTINGS, await this.loadData()) as SproutSettings;
     }
 
     async saveSettings() {

@@ -41,7 +41,7 @@ export class SproutSettingTab extends PluginSettingTab {
             .setDesc("Name of the folder where concept notes are created (root if blank).")
             .addText((text) =>
                 text
-                    .setPlaceholder("concepts")
+                    .setPlaceholder("Concepts")
                     .setValue(this.plugin.settings.conceptsFolder)
                     .onChange(async (value) => {
                         this.plugin.settings.conceptsFolder = value.trim();
