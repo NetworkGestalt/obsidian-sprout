@@ -5,8 +5,8 @@ Select a term or passage and Sage uses the Anthropic API to generate a linked co
 ## Requirements
 
 - Obsidian 1.11.4 or later
-- An [Anthropic API key](https://console.anthropic.com/)
-- Papers already in your vault as markdown (Sage works on notes, not PDFs)
+- An Anthropic API key
+- A markdown note in your vault
 
 ## Setup
 
