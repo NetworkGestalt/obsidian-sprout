@@ -1,6 +1,6 @@
 # Sprout
 
-Select a term or passage and Sprout uses the Anthropic API to generate a linked concept note in your vault. Useful for explaining technical research papers, or for going down learning rabbit holes.
+Select a term or passage and Sprout uses the Anthropic API to generate a linked concept note in your vault. Useful for explaining technical research papers, or for going down a learning rabbit hole.
 
 ## Requirements
 
