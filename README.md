@@ -5,7 +5,7 @@ Select a term or passage and Sprout uses the Anthropic API to generate a linked 
 ## Requirements
 
 - Obsidian 1.11.4 or later
-- An [Anthropic API key](https://console.anthropic.com/)
+- An Anthropic API key
 - Papers already in your vault as markdown (Sprout works on notes, not PDFs)
 
 ## Setup
