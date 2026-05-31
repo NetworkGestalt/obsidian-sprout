@@ -1,5 +1,5 @@
 import { Editor, Notice, normalizePath } from "obsidian";
-import type SproutPlugin from "./main";
+import type SagePlugin from "./main";
 import {
     truncate,
     expandEditorSelectionToWords,
@@ -11,7 +11,7 @@ import {
 } from "./utils";
 import { explain, ExplainResult } from "./model";
 
-export async function explainSelection(plugin: SproutPlugin, editor: Editor) {
+export async function explainSelection(plugin: SagePlugin, editor: Editor) {
     const { app, settings } = plugin;
 
     expandEditorSelectionToWords(editor);
@@ -33,14 +33,14 @@ export async function explainSelection(plugin: SproutPlugin, editor: Editor) {
     } = settings;
     const apiKey = apiKeySecret ? app.secretStorage.getSecret(apiKeySecret) : null;
     if (!apiKey) {
-        new Notice("Sprout: input an API key in settings.");
+        new Notice("Sage: input an API key in settings.");
         return;
     }
 
     const context = getContextAround(editor, from, to, contextLength);
 
     const notice = new Notice("", 0);
-    const baseText = `Sprout: explaining "${truncate(selection)}"`;
+    const baseText = `Sage: explaining "${truncate(selection)}"`;
     const frames = ["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"];
     let frame = 0;
     const renderSpinner = () => notice.setMessage(`${frames[frame]} ${baseText}`);
@@ -54,7 +54,7 @@ export async function explainSelection(plugin: SproutPlugin, editor: Editor) {
     try {
         result = await explain(selection, apiKey, { model, maxTokens, context });
     } catch (err) {
-        new Notice(`Sprout: ${err instanceof Error ? err.message : String(err)}`);
+        new Notice(`Sage: ${err instanceof Error ? err.message : String(err)}`);
         return;
     } finally {
         window.clearInterval(spinner);
@@ -72,7 +72,7 @@ export async function explainSelection(plugin: SproutPlugin, editor: Editor) {
         }
 
         if (app.vault.getAbstractFileByPath(path)) {
-            new Notice(`Sprout: linked to existing note "${title}".`);
+            new Notice(`Sage: linked to existing note "${title}".`);
         } else {
             const noteBody = `${quoteCallout(selection)}\n\n${result.body}`;
             const created = await app.vault.create(path, noteBody);
@@ -83,12 +83,12 @@ export async function explainSelection(plugin: SproutPlugin, editor: Editor) {
             }
         }
     } catch (err) {
-        new Notice(`Sprout: ${err instanceof Error ? err.message : String(err)}`);
+        new Notice(`Sage: ${err instanceof Error ? err.message : String(err)}`);
         return;
     }
 
     const linkTarget = normalizedFolder ? `${normalizedFolder}/${title}` : title;
-    const alias = conceptAlias === "sprout" ? "🌱" : title;
+    const alias = conceptAlias === "icon" ? "🌿" : title;
     let body = selection;
     if (selectionStyle === "highlight") body = wrapHighlight(selection);
     if (selectionStyle === "wikilink") body = wrapWikilink(selection, linkTarget);

@@ -1,20 +1,20 @@
 import { Plugin } from "obsidian";
-import { SproutSettings, DEFAULT_SETTINGS, SproutSettingTab } from "./settings";
+import { SageSettings, DEFAULT_SETTINGS, SageSettingTab } from "./settings";
 import { explainSelection } from "./explainSelection";
 
-export default class SproutPlugin extends Plugin {
-    settings!: SproutSettings;
+export default class SagePlugin extends Plugin {
+    settings!: SageSettings;
 
     async onload() {
         await this.loadSettings();
-        this.addSettingTab(new SproutSettingTab(this.app, this));
+        this.addSettingTab(new SageSettingTab(this.app, this));
 
         this.registerEvent(
             this.app.workspace.on("editor-menu", (menu, editor) => {
                 if (!editor.getSelection()) return;
                 menu.addItem((item) =>
                     item.setTitle("Explain selection")
-                        .setIcon("sprout")
+                        .setIcon("leaf")
                         .onClick(() => explainSelection(this, editor))
                 );
             })
@@ -23,7 +23,7 @@ export default class SproutPlugin extends Plugin {
         this.addCommand({
             id: "explain-selection",
             name: "Explain selection",
-            icon: "sprout",
+            icon: "leaf",
             editorCheckCallback: (checking, editor) => {
                 if (!editor.getSelection()) return false;
                 if (!checking) void explainSelection(this, editor);
@@ -35,7 +35,7 @@ export default class SproutPlugin extends Plugin {
     onunload() {}
 
     async loadSettings() {
-        this.settings = Object.assign({}, DEFAULT_SETTINGS, await this.loadData()) as SproutSettings;
+        this.settings = Object.assign({}, DEFAULT_SETTINGS, await this.loadData()) as SageSettings;
     }
 
     async saveSettings() {

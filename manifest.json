@@ -1,6 +1,6 @@
 {
-	"id": "sprout-concepts",
-	"name": "Sprout",
+	"id": "sage",
+	"name": "Sage",
 	"version": "0.1.1",
 	"minAppVersion": "1.11.4",
 	"description": "Highlight a term and get a linked concept note added to your vault.",

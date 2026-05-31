@@ -14,7 +14,7 @@ export type ModelId = keyof typeof MODELS;
 export const DEFAULT_MODEL: ModelId = "claude-opus-4-8";
 export const DEFAULT_MAX_TOKENS = 2048;
 
-const SYSTEM_PROMPT = `You are Sprout, an assistant embedded in the user's note-taking app. Your role is to explain selected passages from their notes in clear, intuitive language that helps the user understand technical concepts.
+const SYSTEM_PROMPT = `You are Sage, an assistant embedded in the user's note-taking app. Your role is to explain selected passages from their notes in clear, intuitive language that helps the user understand technical concepts.
 
 The user will provide a passage to explain, possibly with surrounding context from their notes. Use the context to disambiguate the selection's meaning, but focus your explanation on the selected text only.
 

@@ -1,11 +1,11 @@
 import { App, PluginSettingTab, SecretComponent, Setting } from "obsidian";
-import type SproutPlugin from "./main";
+import type SagePlugin from "./main";
 import { MODELS, ModelId, DEFAULT_MODEL, DEFAULT_MAX_TOKENS } from "./model";
 
 export type SelectionStyle = "none" | "highlight" | "wikilink";
-export type ConceptAlias = "sprout" | "title";
+export type ConceptAlias = "icon" | "title";
 
-export interface SproutSettings {
+export interface SageSettings {
     conceptsFolder: string;
     selectionStyle: SelectionStyle;
     conceptAlias: ConceptAlias;
@@ -15,7 +15,7 @@ export interface SproutSettings {
     maxTokens: number;
 }
 
-export const DEFAULT_SETTINGS: SproutSettings = {
+export const DEFAULT_SETTINGS: SageSettings = {
     conceptsFolder: "concepts",
     selectionStyle: "none",
     conceptAlias: "title",
@@ -25,10 +25,10 @@ export const DEFAULT_SETTINGS: SproutSettings = {
     maxTokens: DEFAULT_MAX_TOKENS,
 };
 
-export class SproutSettingTab extends PluginSettingTab {
-    plugin: SproutPlugin;
+export class SageSettingTab extends PluginSettingTab {
+    plugin: SagePlugin;
 
-    constructor(app: App, plugin: SproutPlugin) {
+    constructor(app: App, plugin: SagePlugin) {
         super(app, plugin);
         this.plugin = plugin;
     }
@@ -81,7 +81,7 @@ export class SproutSettingTab extends PluginSettingTab {
             .addDropdown((dropdown) =>
                 dropdown
                     .addOptions({
-                        sprout: "🌱",
+                        icon: "🌿",
                         title: "Title",
                     })
                     .setValue(this.plugin.settings.conceptAlias)
