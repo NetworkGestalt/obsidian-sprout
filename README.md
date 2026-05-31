@@ -1,6 +1,6 @@
 # Sprout
 
-Select a term or passage and Sprout uses the Anthropic API to generate a linked explanation note in your vault. Useful for explaining technical concepts in research papers, or for going down a learning rabbit hole.
+Select a term or passage and Sprout uses the Anthropic API to generate a linked concept note in your vault. Useful for explaining technical research papers, or for going down learning rabbit holes.
 
 ## Requirements
 
@@ -13,7 +13,7 @@ Select a term or passage and Sprout uses the Anthropic API to generate a linked 
 Sprout isn't in the community plugin catalog yet, so install it manually:
 
 1. Clone the repo and run `npm install && npm run build` to produce `main.js`.
-2. Place `main.js` and `manifest.json` in `.obsidian/plugins/sprout/`.
+2. Place `main.js` and `manifest.json` in `.obsidian/plugins/sprout-concepts/`.
 3. Enable **Sprout** under **Settings → Community plugins**.
 
 ## Setup

@@ -1,9 +1,9 @@
 {
-	"id": "sprout",
+	"id": "sprout-concepts",
 	"name": "Sprout",
 	"version": "0.1.0",
 	"minAppVersion": "1.11.4",
-	"description": "Highlight a term and get a linked explanation note added to your vault.",
+	"description": "Highlight a term and get a linked concept note added to your vault.",
 	"author": "NetworkGestalt",
 	"authorUrl": "https://github.com/NetworkGestalt",
 	"isDesktopOnly": false

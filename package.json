@@ -1,7 +1,7 @@
 {
 	"name": "obsidian-sprout",
 	"version": "0.1.0",
-	"description": "Highlight a term and get a linked explanation note added to your vault.",
+	"description": "Highlight a term and get a linked concept note added to your vault.",
 	"main": "main.js",
 	"type": "module",
 	"scripts": {
