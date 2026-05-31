@@ -18,9 +18,9 @@ export interface SproutSettings {
 export const DEFAULT_SETTINGS: SproutSettings = {
     conceptsFolder: "concepts",
     selectionStyle: "none",
-    conceptAlias: "sprout",
+    conceptAlias: "title",
     apiKeySecret: "",
-    contextLength: 500,
+    contextLength: 2000,
     model: DEFAULT_MODEL,
     maxTokens: DEFAULT_MAX_TOKENS,
 };
@@ -38,7 +38,7 @@ export class SproutSettingTab extends PluginSettingTab {
 
         new Setting(this.containerEl)
             .setName("Concepts folder")
-            .setDesc("Name of the folder where concept notes are created (root if blank).")
+            .setDesc("Name of the folder where concept notes are created (vault root if blank).")
             .addText((text) =>
                 text
                     .setPlaceholder("Concepts")
@@ -53,12 +53,11 @@ export class SproutSettingTab extends PluginSettingTab {
             .setName("Selection style")
             .setDesc((() => {
                 const frag = document.createDocumentFragment();
-                frag.appendText("Display style of the selected text after a concept is created.");
-                frag.createEl("br");
+                frag.appendText("Display style of the selected text after a concept is created. ");
                 frag.createEl("em", {
                     text:
                         'Warning: "Highlight" breaks existing highlights in the selected text, ' +
-                        'and "Wikilink" breaks any math rendering.',
+                        'and "Wikilink" breaks math rendering.',
                 });
                 return frag;
             })())
@@ -99,7 +98,7 @@ export class SproutSettingTab extends PluginSettingTab {
                 text.inputEl.type = "number";
                 text.inputEl.min = "0";
                 text
-                    .setPlaceholder("500")
+                    .setPlaceholder("2000")
                     .setValue(String(this.plugin.settings.contextLength))
                     .onChange(async (value) => {
                         const n = Number.parseInt(value, 10);
