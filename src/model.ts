@@ -4,14 +4,15 @@ const ANTHROPIC_MESSAGES_URL = "https://api.anthropic.com/v1/messages";
 const ANTHROPIC_VERSION = "2023-06-01";
 
 export const MODELS = {
+    "claude-opus-4-8": "Claude Opus 4.8",
     "claude-opus-4-7": "Claude Opus 4.7",
     "claude-opus-4-6": "Claude Opus 4.6",
     "claude-sonnet-4-6": "Claude Sonnet 4.6",
     "claude-haiku-4-5": "Claude Haiku 4.5",
 } as const;
 export type ModelId = keyof typeof MODELS;
-export const DEFAULT_MODEL: ModelId = "claude-sonnet-4-6";
-export const DEFAULT_MAX_TOKENS = 1024;
+export const DEFAULT_MODEL: ModelId = "claude-opus-4-8";
+export const DEFAULT_MAX_TOKENS = 2048;
 
 const SYSTEM_PROMPT = `You are Sprout, an assistant embedded in the user's note-taking app. Your role is to explain selected passages from their notes in clear, intuitive language that helps the user understand technical concepts.
 
